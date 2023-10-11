@@ -8,13 +8,12 @@ function App() {
     const [skills,setSkills] = useState(skillsData.skills);
     const [isEditing, setIsEditing] = useState(false);
     const handleSelectChange=(e,index)=>{
-      setSelects([...selects,{
+    setSelects([...selects,{
         id:index,
         text:e.target.value
-      }])
+    }])
       const updatedSelects = skills.filter((skill) => skill !== e.target.value);
-      console.log(updatedSelects)
-      // Update the state with the new array
+      
       setSkills(updatedSelects);
     }
   return (
@@ -28,6 +27,9 @@ function App() {
                               <Select
                                     selects={selects}
                                     setSelects={setSelects}
+                                    setSkills={setSkills}
+                                    skills={skills}
+                                    
                               />
                 <select
                   className='p-1 py-3 rounded-xl w-5/6 text-gray-500' 
